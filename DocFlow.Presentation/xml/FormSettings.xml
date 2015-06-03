@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<formfields>
+  <field>
+    <name>LastName</name>
+    <label>Employee Last Name</label>
+    <controltype>TextBox</controltype>
+    <order>0</order>
+  </field>
+  <field>
+    <name>FirstName</name>
+    <label>Employee First Name</label>
+    <controltype>TextBox</controltype>
+    <order>1</order>
+  </field>
+  <field>
+    <name>DirectoryType</name>
+    <label>Employee Directory</label>
+    <controltype>RadioButtonList</controltype>
+    <order>2</order>
+    <option>Benefits</option>
+    <option>Compensation</option>
+    <option>Performance</option>
+    <option>Initial Employment Docs</option>
+    <option>Incentive</option>
+  </field>          
+  <field>
+    <name>DocumentType</name>
+    <label>Document Type</label>
+    <controltype>DropDownList</controltype>
+    <order>3</order>
+    <option>American Funds Application</option>
+    <option>Assurant Application</option>    
+    <option>Assurant Printed Confirmation</option>    
+    <option>Benefits Authorization Form</option>    
+    <option>Direct Deposit Form</option>    
+    <option>Personnel Transaction Form</option>    
+    <option>United Way Designation</option>    
+    <option>W4</option>    
+    <option>Incentive Deduction</option>
+    <option>Incentive Summary</option>
+    <option>Background Screening Release</option>    
+    <option>Background Screening Results</option>    
+    <option>Consumer Report Release</option>    
+    <option>Drug Free Workplace Policy</option>    
+    <option>Drug Test Results</option>    
+    <option>Drug Test Consent Form</option>    
+    <option>Credit Report</option>    
+    <option>Resume</option>    
+    <option>Application</option>    
+    <option>Signed Receipt of Handbook</option>    
+    <option>Job Description</option>    
+    <option>90 Day Review</option>    
+    <option>Performance Appraisal</option>    
+    <option>Status Change</option>    
+    <option>Corporate Card Form</option>    
+    <option>AFLAC docs</option>    
+    <option>CHP Application</option>    
+    <option>Salary Redirection Agreement</option>    
+    <option>Pay Alteration Memo</option>    
+    <option>Pay Error Correction</option>    
+    <option>Salary Change Request Form</option>    
+    <option>Orientation Agenda</option>    
+    <option>Offer Letter</option>    
+    <option>BCBS Application</option>    
+    <option>Assurant Health Statement</option>    
+    <option>Assurant HIPPA Authorization</option>    
+    <option>Emergency Contact Information</option>    
+    <option>CHP Member Status Change Form</option>    
+    <option>Spot Bonus Memo</option>    
+    <option>American Funds Beneficiary Form</option>    
+    <option>Written Correction Notice</option>    
+    <option>Performance Memo</option>    
+    <option>Exit Interview</option>    
+    <option>Separation Letter</option>    
+    <option>401K Separation Form</option>    
+    <option>Separation Checklist</option>    
+    <option>Veteran Self ID Form</option>    
+    <option>Disability Self ID Form</option>    
+    <option>Self ID Form</option>
+   </field>
+  <field>
+    <name>DocumentDate</name>
+    <label>Date</label>
+    <controltype>DatePicker</controltype>    
+    <order>4</order>
+  </field>
+</formfields>

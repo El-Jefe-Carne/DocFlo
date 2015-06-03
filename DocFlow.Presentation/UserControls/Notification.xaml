@@ -1,0 +1,8 @@
+﻿<Window x:Class="DocFlow.Presentation.Notification"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Notification" Height="150" Width="300">
+    <Grid>
+        <Label HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="tbMessage">Message Text here.</Label>     
+    </Grid>    
+</Window>

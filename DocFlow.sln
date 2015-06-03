@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30501.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocFlow.Core", "DocFlow.Core\DocFlow.Core.csproj", "{33B2A89A-9E1C-41AE-975E-635332F16FDD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocFlow.Services", "DocFlow.Services\DocFlow.Services.csproj", "{5E11675C-4204-4806-A169-F26EDB59E3FF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocFlow.Presentation", "DocFlow.Presentation\DocFlow.Presentation.csproj", "{0BE2A416-AC5A-466A-AA77-4A827046544B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{33B2A89A-9E1C-41AE-975E-635332F16FDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33B2A89A-9E1C-41AE-975E-635332F16FDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33B2A89A-9E1C-41AE-975E-635332F16FDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33B2A89A-9E1C-41AE-975E-635332F16FDD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E11675C-4204-4806-A169-F26EDB59E3FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E11675C-4204-4806-A169-F26EDB59E3FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E11675C-4204-4806-A169-F26EDB59E3FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E11675C-4204-4806-A169-F26EDB59E3FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0BE2A416-AC5A-466A-AA77-4A827046544B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BE2A416-AC5A-466A-AA77-4A827046544B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BE2A416-AC5A-466A-AA77-4A827046544B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BE2A416-AC5A-466A-AA77-4A827046544B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
