@@ -40,10 +40,20 @@ namespace DocFlow.Presentation
             InitializeComponent();
              
             //observer pattern setup
-            _subject = uDirectoryFileList;
-            _subject.addObserver(this);            
+            var directoryList = new DirectoryFileList();
 
-            wfhAdobeReader.Child = new AdobeViewer(uDirectoryFileList.SelectedFilePath);                                                  
+            _subject = directoryList;
+            _subject.addObserver(this);
+
+            grdDirectoryList.Children.Add(directoryList);
+
+            wfhAdobeReader.Child = new AdobeViewer(directoryList.SelectedFilePath);
+            
+            var formView = new FormView(directoryList);
+
+            grdFormView.Children.Add(formView);
+
+
         }
         #endregion
 

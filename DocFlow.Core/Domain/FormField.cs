@@ -13,6 +13,7 @@ namespace DocFlow.Core.Domain
         public string ControlType { get; set; }
         public int Order { get; set; }
         public string Response { get; set; }
+        public bool HasOther { get; set; }
 
         public IEnumerable<string> SubFields { get; set; }
     }

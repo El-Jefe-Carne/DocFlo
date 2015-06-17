@@ -6,18 +6,21 @@
     <label>Employee Last Name</label>
     <controltype>TextBox</controltype>
     <order>0</order>
+    <hasother>false</hasother>
   </field>
   <field>
     <name>FirstName</name>
     <label>Employee First Name</label>
     <controltype>TextBox</controltype>
     <order>1</order>
+    <hasother>false</hasother>
   </field>
   <field>
     <name>DirectoryType</name>
     <label>Employee Directory</label>
     <controltype>RadioButtonList</controltype>
     <order>2</order>
+    <hasother>false</hasother>
     <option>Benefits</option>
     <option>Compensation</option>
     <option>Performance</option>
@@ -29,6 +32,7 @@
     <label>Document Type</label>
     <controltype>DropDownList</controltype>
     <order>3</order>
+    <hasother>true</hasother>
     <option>American Funds Application</option>
     <option>Assurant Application</option>    
     <option>Assurant Printed Confirmation</option>    
@@ -78,11 +82,13 @@
     <option>Veteran Self ID Form</option>    
     <option>Disability Self ID Form</option>    
     <option>Self ID Form</option>
+    <option>Other</option>
    </field>
   <field>
     <name>DocumentDate</name>
     <label>Date</label>
     <controltype>DatePicker</controltype>    
     <order>4</order>
+    <hasother>false</hasother>
   </field>
 </formfields>

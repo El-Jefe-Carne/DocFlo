@@ -18,14 +18,18 @@
                 Width="*"></ColumnDefinition>
             <ColumnDefinition 
                 Width="250"></ColumnDefinition>            
-        </Grid.ColumnDefinitions>                                                  
-            
-        <UserControls:DirectoryFileList
-            x:Name="uDirectoryFileList"
-            Width="Auto"            
+        </Grid.ColumnDefinitions>
+
+        <Border                         
             Grid.Column="0"
-            Grid.Row="0">                        
-        </UserControls:DirectoryFileList>
+            Grid.Row="0"
+            BorderBrush="Gray"
+            BorderThickness="0 0 1 0">
+            <Grid x:Name="grdDirectoryList"
+              Style="{StaticResource defaultPanelBackground}"
+              Grid.Column="0"
+              Grid.Row="0"></Grid>        
+        </Border>
         
         <WindowsFormsHost x:Name="wfhAdobeReader"
                             Grid.Row="0"

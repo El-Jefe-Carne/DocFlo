@@ -8,6 +8,6 @@ namespace DocFlow.Core.Pattern.Oberserver
 {
     public interface IObserver
     {
-        void Update(ISubject sdbject, object args);
+        void Update(ISubject subject, object args);
     }
 }
