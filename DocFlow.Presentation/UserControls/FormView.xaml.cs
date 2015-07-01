@@ -16,6 +16,7 @@ using System.Xml.Linq;
 using DocFlow.Core.Domain;
 using DocFlow.Core.Domain.Enums;
 using DocFlow.Core.Pattern.Oberserver;
+using DocFlow.Presentation.Helpers;
 using DocFlow.Services.Interfaces;
 using DocFlow.Services.Services;
 
@@ -42,9 +43,21 @@ namespace DocFlow.Presentation.UserControls
         /// <exception cref="NotImplementedException"></exception>
         private void rdoOther_Checked(object sender, RoutedEventArgs e)
         {
-            //figure out which field sent the request
-            //make the correct formfield visible
-            throw new NotImplementedException();
+            var radio = (RadioButton)sender;
+
+            //find the label and make it visible
+            var otherLabel = UIHelper.FindChild<Label>(pnlFormFieldContainer, string.Format(string.Format("other{0}Label", radio.Name)));
+            if (otherLabel != null)
+            {
+                otherLabel.Visibility = Visibility.Visible;                
+            }
+
+            //find the Other textbox associated with this field and make it visible                
+            var otherField = UIHelper.FindChild<TextBox>(pnlFormFieldContainer, string.Format(string.Format("other{0}", radio.Name)));
+            if (otherField != null)
+            {
+                otherField.Visibility = Visibility.Visible;                
+            }
         }
 
         /// <summary>
@@ -55,9 +68,22 @@ namespace DocFlow.Presentation.UserControls
         /// <exception cref="NotImplementedException"></exception>
         private void rdoOther_Unchecked(object sender, RoutedEventArgs e)
         {
-            //figure out which field sent the request
-            //make the correct formfield hide
-            throw new NotImplementedException();
+            //cast the sender as a radio button
+            var radio = (RadioButton)sender;
+
+            //find the label 
+            var otherLabel = UIHelper.FindChild<Label>(pnlFormFieldContainer, string.Format(string.Format("other{0}Label", radio.Name)));
+            if (otherLabel != null && otherLabel.Visibility == Visibility.Visible)
+            {
+                otherLabel.Visibility = Visibility.Collapsed;                
+            }
+
+            //find the Other textbox associated with this field and make it visible                
+            var otherField = UIHelper.FindChild<TextBox>(pnlFormFieldContainer, string.Format(string.Format("other{0}", radio.Name)));
+            if (otherField != null && otherField.Visibility == Visibility.Visible)
+            {
+                otherField.Visibility = Visibility.Collapsed;                
+            }
         }
 
         /// <summary>
@@ -68,9 +94,42 @@ namespace DocFlow.Presentation.UserControls
         /// <exception cref="NotImplementedException"></exception>
         private void comboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //figure out which combobox is the sender
-            //display the appropriate other textbox
-            throw new NotImplementedException();
+            //cast the sender as a combo box
+            var combo  = (ComboBox)sender;
+
+            //if the box's selected value is Other
+            if (combo.SelectedValue != null && combo.SelectedValue.ToString() == "Other")
+            {
+                //find the label and make it visible
+                var otherLabel = UIHelper.FindChild<Label>(pnlFormFieldContainer, string.Format(string.Format("other{0}Label", combo.Name)));
+                if (otherLabel != null)
+                {
+                    otherLabel.Visibility = Visibility.Visible;                    
+                }
+
+                //find the Other textbox associated with this field and make it visible                
+                var otherField = UIHelper.FindChild<TextBox>(pnlFormFieldContainer, string.Format(string.Format("other{0}", combo.Name)));
+                if (otherField != null)
+                {
+                    otherField.Visibility = Visibility.Visible;                   
+                }
+            }
+            else//if the box's selected value is not other, make sure to hide the other field if it's visibile
+            {
+                //find the label 
+                var otherLabel = UIHelper.FindChild<Label>(pnlFormFieldContainer, string.Format(string.Format("other{0}Label", combo.Name)));
+                if (otherLabel != null && otherLabel.Visibility == Visibility.Visible)
+                {
+                    otherLabel.Visibility = Visibility.Collapsed;                    
+                }
+
+                //find the Other textbox associated with this field and make it visible                
+                var otherField = UIHelper.FindChild<TextBox>(pnlFormFieldContainer, string.Format(string.Format("other{0}", combo.Name)));
+                if (otherField != null && otherField.Visibility == Visibility.Visible)
+                {
+                    otherField.Visibility = Visibility.Collapsed;                    
+                }
+            }
         }
 
         /// <summary>
@@ -95,24 +154,28 @@ namespace DocFlow.Presentation.UserControls
         /// </summary>
         /// <param name="field">The field.</param>
         protected void CreateFieldLabel(FormField field)
-        {            
+        {
+            var label = new Label
+            {
+                Content = field.Label,                
+                Name = string.Format("{0}Label", field.Name)
+            };
+
             if (field.ControlType == ControlType.RadioButtonList.ToString())
-            {                
-                pnlFormFieldContainer.Children.Add(new Label
-                {
-                    Content = field.Label,
-                    Margin = new Thickness(10, 15, 15, 0)//radio buttons have 5 margin o the top so the bottom margin here is not needed                    
-                });
+            {
+                label.Margin = new Thickness(10, 15, 15, 0);//radio buttons have 5 margin o the top so the bottom margin here is not needed                                   
             }
             else
-            {
-                pnlFormFieldContainer.Children.Add(new Label
-                {
-                    Content = field.Label,
-                    Margin = new Thickness(10, 15, 15, 5),//controls that aren't radios need the margin bottom here,
-                    Visibility = field.Name.StartsWith("other") ? Visibility.Hidden : Visibility.Visible
-                });
+            {                
+                label.Margin = new Thickness(10, 15, 15, 5);//controls that aren't radios need the margin bottom here,                                                        
             }            
+
+            if (field.Name.StartsWith("other"))
+            {                
+                label.Visibility = Visibility.Collapsed;                
+            }
+                
+            pnlFormFieldContainer.Children.Add(label);
         }
 
         /// <summary>
@@ -126,10 +189,12 @@ namespace DocFlow.Presentation.UserControls
                 throw new ArgumentNullException("textboxField");
             //add a textbox to the stack panel
 
+            var visibility = textboxField.Name.StartsWith("other") ? Visibility.Collapsed : Visibility.Visible;            
+
             pnlFormFieldContainer.Children.Add(new TextBox
             {
                 Name = textboxField.Name,
-                Visibility = textboxField.Name.StartsWith("other") ? Visibility.Hidden : Visibility.Visible
+                Visibility = visibility,                
             });
         }
 
@@ -157,8 +222,8 @@ namespace DocFlow.Presentation.UserControls
 
                 if (radio == "Other")
                 {
-                    radioBtn.Checked += rdoOther_Checked;
-                    radioBtn.Unchecked += rdoOther_Unchecked;  
+                    radioBtn.Checked += rdoOther_Checked;                    
+                    radioBtn.Unchecked += rdoOther_Unchecked;
                 }
                 
                 radioContainer.Children.Add(radioBtn);

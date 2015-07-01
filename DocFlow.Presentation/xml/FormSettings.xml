@@ -20,12 +20,13 @@
     <label>Employee Directory</label>
     <controltype>RadioButtonList</controltype>
     <order>2</order>
-    <hasother>false</hasother>
+    <hasother>true</hasother>
     <option>Benefits</option>
     <option>Compensation</option>
     <option>Performance</option>
     <option>Initial Employment Docs</option>
     <option>Incentive</option>
+    <option>Other</option>
   </field>          
   <field>
     <name>DocumentType</name>
